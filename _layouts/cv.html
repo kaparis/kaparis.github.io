@@ -1,0 +1,108 @@
+---
+layout: page_no_header
+---
+
+{% assign cv = site.data.cv %}
+{% assign config = page.cv %}
+
+<style scoped>
+    .cv p { margin: 0; }
+    .cv h1, h2 { font-weight: normal; }
+    .cv-photo { height: 76px; float: left; margin: 0 1em 1rem 0; }
+
+    .cv-basic-info { clear: both; }
+    .cv-basic-info-item { margin-right: 1em; white-space: nowrap; }
+
+    .cv-section-header { position: relative; }
+    .cv-section-title { font-style: italic; display: inline-block; background: #fff; padding-right: 1.2rem; }       
+    
+    .cv-item-title { font-weight: bold; }
+    .cv-item-content { padding-left: 1px; }
+    .cv-item-bold { font-weight: bold; }
+    .cv-item-italic { font-style: italic }
+
+    .cv-item-content > ul { padding: 0; margin: 1; }
+    .cv-item-content em { color: #636c72; margin-left: 0.5rem; }
+
+    
+</style>
+
+<div class="cv">
+
+    <span style="float: right"><i class="fa fa-download"></i>
+        <a title="Download as PDF" href="{{cv.pdfLink}}">DOWNLOAD PDF</a>
+    </span>
+
+    {%comment%} Header {%endcomment%}
+    <header>
+        <img class="cv-photo" src="{{cv.imageLink}}" alt="my photo" />
+        <h1 class="cv-name">{{cv.name}}</h1>
+        <span class="text-muted">{{cv.tagline}}</span>
+    </header>
+
+    {%comment%} Contact Info {%endcomment%}
+    <section class="cv-basic-info">
+        <span class="cv-basic-info-item">Email: <a href="mailto:{{cv.email}}">{{cv.email}}</a></span>
+        <span class="cv-basic-info-item">Website: <a href="{{cv.website}}">{{cv.website}}</a></span>
+        <span class="cv-basic-info-item">Github: <a href="{{cv.githubhandle}}">{{cv.website}}</a></span>
+        <span class="cv-basic-info-item">LinkedIn: <a href="{{cv.linkedinhandle}}">{{cv.website}}</a></span>
+        <span class="cv-basic-info-item">Location: {{cv.location}}</span>
+    </section>
+
+    {%comment%} Education Info {%endcomment%}
+    <section class="cv-section">
+            
+        {%comment%} Title {%endcomment%}
+        <header class="cv-section-header"><h2 class="cv-section-title">{{cv.education.title}}</h2></header>
+      
+        {%comment%} Items {%endcomment%}
+        <div class="cv-item">
+            <span class="cv-item-bold">{{cv.education.degree}}</span>,<span class="cv-item-italic">{{cv.education.note}}</span>, {{cv.education.graduated}}
+        </div>
+
+        <div class="cv-item">
+            {{cv.education.school}}, {{cv.education.location}}
+        </div>
+    </section>
+    
+    {%comment%} Experience {%endcomment%}
+    <section class="cv-section">
+            {%comment%} Title {%endcomment%}
+            <header class="cv-section-header"><h2 class="cv-section-title">{{cv.experience.title}}</h2></header>
+            
+            {%comment%} Items {%endcomment%}
+            {% for job in cv.experience.jobs %}
+                <div class="cv-item">
+                    <div class="cv-item-content">
+                        <span class="cv-item-bold">{{job.role}}</span>
+                        <span class="cv-item-italic">{{job.company}}, {{job.location}}</span>
+                        <span class="cv-item-content"> {{job.period}}</span>
+                    <ul>
+                        {% for highlight in job.highlights %}
+                            <li class="cv-item-content">{{highlight}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+    </section>
+    
+    
+    {%comment%} Skills {%endcomment%}
+    <section class="cv-section">
+            {%comment%} Title {%endcomment%}
+            <header class="cv-section-header"><h2 class="cv-section-title">{{cv.skills.title}}</h2></header>
+         
+            {%comment%} Items {%endcomment%}
+            {% for cat in cv.skills.categories %}
+                <div class="cv-item">
+                    <span class="cv-item-bold">{{cat.name}}</span>
+
+                    {% for skill in cat.skills %}
+                        <span class="cv-item-content">{{skill}},</span>
+                    {% endfor %}
+
+                </div>
+            {% endfor %}
+    </section>
+
+</div><!-- .cv -->

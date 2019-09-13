@@ -1,0 +1,62 @@
+# Config
+pdfLink: "../assets/kaparis_cv.pdf" 
+imageLink: "../assets/kaparis_me.png"
+
+# Person Information
+name: David Kaparis
+title: Principe of Software Development
+objective: How I solve problems is a definition of my character.
+location: Chicago, IL
+
+email: kaparis at gmail dot com
+website: wwww.kaparis.net
+githubhandle: https://github.com/kaparis
+linkedinhandle: https://www.linkedin.com/in/kaparis
+
+education:
+  title: Education
+  school: Northeastern Illinois University
+  location: Chicago, IL		
+  degree: Bachelor of Science, Computer Science & Minor in Mathematics
+  note: cum laude Honor Recognition
+  graduated: 2007
+
+experience:
+  title: Experience
+  jobs:
+    - role: Principle of Software Development
+      company: Engineering USA
+      location: Chicago, IL
+      period: 1 year
+      highlights:
+        - C++
+        - Java
+        - Python
+    - role: Solution Architect / Project Manager
+      company: Hyla Soft
+      location: Chicago, IL
+      period: 1 year
+      highlights:
+        - C++
+        - Java
+        - Python
+
+skills:
+  title: Skills
+  categories:
+    - name: Programming
+      skills:
+        - C++
+        - Java
+    - name: Database
+      skills:
+        - C++
+        - Java
+    - name: Tools
+      skills:
+        - C++
+        - Java
+    - name: Software
+      skills:
+        - C++
+        - Java
